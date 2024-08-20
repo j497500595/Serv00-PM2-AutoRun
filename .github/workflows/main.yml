@@ -32,6 +32,11 @@ jobs:
       if: env.service_status == 'not_running'
       run: ssh -o StrictHostKeyChecking=no asdqwer@s8.serv00.com "/home/asdqwer/run.sh" #这里改成你的用户名@你的ssh服务器地址
 
+    - name: Setup SSH2
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY2 }}
+
     - name: Check if service is running2
       id: check_service2
       run: |
